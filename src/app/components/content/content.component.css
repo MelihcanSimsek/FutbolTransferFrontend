@@ -1,0 +1,31 @@
+.content-box{
+    display: flex;
+    flex-direction: column;
+   
+}
+
+
+.content-header{
+    background-color: #292929;
+    height: 120px;
+    
+}
+
+hr{
+    color: white;
+}
+
+
+textarea{
+    background-color:#121212 ;
+    color: white;
+    resize: none;
+}
+
+textarea::placeholder{
+    color: wheat;
+}
+
+textarea:enabled{
+    background-color: #121212;
+}
