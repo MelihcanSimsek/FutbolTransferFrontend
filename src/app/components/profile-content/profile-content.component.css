@@ -1,0 +1,234 @@
+.page-header{
+    height: 60px;
+    background-color: #242424;
+}
+
+.home-header{
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 2rem;
+}
+
+.profile-card{
+    background-color: #121212;
+}
+
+.profile-image{
+    width: 120px;
+    height: 120px;
+    border-radius: 120px;
+    position: absolute;
+    top:150px;
+    left: 15px;
+    border: 2px solid black;
+}
+
+
+.background-image{
+    width: 770px;
+    height: 200px;
+    border: 2px solid black;
+}
+
+.username-header{
+    color: white;
+    font-size: 1.2rem;
+}
+
+.user-information{
+    margin-top: 60px;
+}
+
+
+.id-text{
+    color: lightslategray;
+    font-size: 1.0rem;
+}
+
+
+.fas
+{
+    color: yellow;
+    font-size: 1rem;
+}
+
+.name-icon
+{
+    display: flex;
+    margin-left: 15px;
+}
+
+.id-container
+{
+    position: absolute;
+    left: 30px;
+    top: 300px;
+}
+
+.follow-container{
+    position: absolute;
+    top: 225px;
+    left: 650px;
+}
+
+.follow-button
+{
+    background-color: #ffc107;
+    height: 50px;
+    width: 135px;
+    border: 1px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s;
+}
+
+.follow-button:hover{
+    opacity: 0.9;
+}
+
+.follow-button h2{
+    color: #121212;
+}
+
+.unfollow-button
+{
+    background-color: #121212;
+    height: 50px;
+    width: 135px;
+    border: 1px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s;
+}
+
+.unfollow-button:hover
+{
+    background-color: #242424;
+    
+}
+
+.unfollow-button h2{
+    color: #ffc107;
+}
+
+.edit-profile-button
+{
+    background-color: #121212;
+    height: 50px;
+    width: 135px;
+    border: 1px solid #ffc107;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s;
+}
+
+.edit-profile-button:hover
+{
+    background-color: #242424;
+    
+}
+
+.edit-profile-button h2{
+    color: white;
+}
+
+.profile-description
+{
+    margin-left: 15px;
+}
+.profile-description p{
+    color: whitesmoke;
+}
+
+
+.creation-date{
+    margin-left: 15px;
+}
+
+.creation-date p{
+    color: lightslategray;
+}
+
+.location-link-container{
+    display: flex;
+    margin-left: 15px;
+}
+
+.location p{
+    color: lightslategray;
+}
+
+
+.website p{
+    color: lightslategray;
+}
+
+.website p a{
+    color: yellow;
+    text-decoration: none;
+}
+
+.follower-information{
+    display: flex;
+    margin-left: 15px;
+}
+
+.follower-information p{
+    color: lightslategray;
+}
+
+.number{
+    color: white;
+}
+
+.line{
+    color: white;
+    font-size: 1rem;
+}
+
+.post-profile-image{
+    border-radius: 50px;
+}
+
+
+.main-test-post-box{
+    display: flex;
+}
+
+.name{
+    display: flex;
+}
+
+.post-card{
+    background-color: #242424;
+    border-radius: 20px;
+}
+
+.name-header a{
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.time-text{
+    color: lightslategray;
+}
+
+.message-content{
+    cursor: pointer;
+}
+
+
+.modal-content{
+    background-color: #ffc107;
+}

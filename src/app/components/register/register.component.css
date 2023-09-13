@@ -1,7 +1,7 @@
 html,
 body {
-  height: 100%;
-
+  height: 100vh;
+  background-color: #121212;
 }
 
 body {
@@ -13,6 +13,15 @@ body {
  
  
 }
+
+.h3{
+  color: white;
+}
+
+.checkbox{
+  color: white;
+}
+
 
 .form-signin {
   max-width: 330px;

@@ -1,0 +1,91 @@
+.card{
+    background-color: #242424;
+    border: 1px groove #ffc107;
+}
+
+.text-header{
+    color: white;
+    text-align: center;
+    font-size: 2.3rem;
+}
+
+
+.player-image-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-image{
+    border-radius: 10px;
+    border:2px groove #121212;
+}
+
+
+.list-group-item{
+    background-color: #242424;
+    color: white;
+}
+
+
+
+.clubs-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    
+}
+
+
+.club-image{
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+.progress{
+    display: flex;
+    justify-content: flex-start;
+    width: 200px;
+}
+
+
+.potential-bar-text{
+   text-align: center;
+}
+
+
+.potential-bar{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.profile-image{
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
+.id-text{
+    color: lightslategray;
+}
+
+.fas{
+    color: yellow;
+}
+
+
+.page-header{
+    height: 60px;
+    background-color: #242424;
+}
+
+.home-header{
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 2rem;
+}

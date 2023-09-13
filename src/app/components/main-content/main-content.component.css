@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Roboto:wght@100;300;400;500;700&display=swap');
+
+
+.post-create{
+    margin-top: 50px;
+    padding: 0 20px;
+}
+
+textarea{
+    resize: none;
+    color: white;
+    font-size: 1.2rem;
+}
+
+textarea:enabled{
+    background-color: #121212;
+}
+
+textarea::placeholder{
+    color: darkgray;
+    font-family: 'Roboto',sans-serif;
+    font-size: 1.5rem;
+}
+
+textarea:focus{
+    color: white;
+}
+
+
+
+hr{
+
+    color: white;
+    
+}
+
+.page-header{
+    height: 60px;
+    background-color: #242424;
+}
+
+.home-header{
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 2rem;
+}
+
+.post-box{
+    border: 1px 0 1px 0 white solid;
+}
+
+.home-header{
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 2rem;
+}
+
+.main-post-content{
+    margin-top: 50px;
+    
+}
+
+.card{
+    background-color: #242424;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* .card-body{
+    display: flex;
+} */
+
+
+.main-test-post-box{
+    display: flex;
+}
+
+
+.profile-image{
+   
+    border-radius: 50px;
+}
+
+.name-header{
+    font-size: 1rem;
+}
+
+.name-header a{
+    color: white;
+    text-decoration: none;
+}
+
+.name{
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+
+.fas{
+
+    color: yellow;
+}
+
+.time-text{
+    color: lightslategray;
+}
+
+.comment:hover{
+    color: rgb(138, 205, 250);
+    opacity: 0.7;
+    
+}
+
+.interactive-fas{
+    font-size: 1.2rem;
+    color: gray;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.interactive-content
+{
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+
+.interactive-text{
+    color: white;
+}
+
+.icon-box{
+    padding-right: 10px;
+    border-right: 2px solid wheat;
+}
+
+.verify-icon-box
+{
+    padding-left: 10px;
+    border-left: 2px solid wheat;
+
+}
+
+.comments-text{
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.fav:hover{
+    color: rgb(247, 86, 118);
+    opacity: 0.7; 
+}
+
+.fav-active{
+    color: rgb(247, 86, 118)
+}
+
+
+.verify:hover{
+    color: green;
+    opacity: 0.7;
+}
+
+.verify-active{
+    color: green;
+}
+
+.clubs-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.club-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    color: white;
+}
+
+.club-image{
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    border:2px groove #121212;
+}
+
+
+.player-content{
+    display: flex;
+    justify-content: center;
+}
+
+
+.list-group-item{
+    background-color: #242424;
+    color: white;
+}
+
+.list-group{
+    width: 120px;
+    font-size: 1rem;
+}
+
+.potential-bar-text{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

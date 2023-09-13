@@ -1,0 +1,178 @@
+.page-header{
+    height: 60px;
+    background-color: #242424;
+}
+
+.reporter-header{
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 2rem;
+}
+
+
+
+
+/*                 --- -------*/
+
+
+
+
+
+
+
+hr{
+
+    color: white;
+    
+}
+
+.page-header{
+    height: 60px;
+    background-color: #242424;
+}
+
+.home-header{
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 2rem;
+}
+
+
+.profile-image{
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.profile-image:hover{
+    opacity: 0.9;
+}
+
+
+
+.fas{
+    color: yellow;
+    display: flex;
+    
+}
+
+.name{
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.time-text{
+    color: lightslategray;
+    margin: 0;
+}
+
+.interactive-fas{
+    font-size: 1.2rem;
+    color: gray;
+    cursor: pointer;
+}
+
+.interactive-content
+{
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.comment:hover{
+    color: rgb(138, 205, 250);
+    opacity: 0.7;
+    
+}
+
+.fav:hover{
+    color: rgb(247, 86, 118);
+    opacity: 0.7; 
+    
+}
+
+.verify:hover{
+    color: green;
+    opacity: 0.7;
+}
+
+.interactive-text{
+    color: white;
+}
+
+.name-header{
+    font-size: 1rem;
+}
+
+.name-header a{
+    color: white;
+    text-decoration: none;
+}
+
+.post-content
+{
+    background-color: #242424;
+    border-radius: 20px;
+}
+
+
+.card{
+    background-color: #242424;
+    border-radius: 15px;
+
+    cursor: pointer;
+}
+
+.test-post-box{
+    display: flex;
+}
+
+.post-type{
+   width: 180px;
+   margin-bottom: 20px;
+   background-color: #121212;
+   color: yellow;
+}
+
+select{
+    background-color: #121212;
+    color: yellow;
+    margin-bottom: 20px;
+}
+
+
+.tranfer-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.club-image{
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+    border:2px groove #121212;
+}
+
+.club-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    color: white;
+}
+
+.clubs-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.fav-active{
+    color: rgb(247, 86, 118)
+}
+
+.verify-active{
+    color: green;
+}
+

@@ -1,7 +1,7 @@
-html,
-body {
-  height: 100%;
 
+body {
+  height: 100vh;
+  background-color: #121212;
 }
 
 body {
@@ -33,6 +33,14 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.h3{
+  color: white;
+}
+
+.checkbox{
+  color: white;
 }
 
 .bd-placeholder-img {

@@ -1,0 +1,247 @@
+
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <div class="content">
+      <div class="container">
+        <div class="page-header">
+          <div class="row">
+            <div class="col-md-12">
+              <h5 class="home-header" *ngIf="!postDetail.status">Gönderi</h5>
+              <h5 class="home-header" *ngIf="postDetail.status">Transfer Haberi</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 ">
+          <div class="main-post-content">
+            <div class="card">
+              <div class="card-header" *ngIf="postDetail.status">
+                <div class="row" >
+                  <div class="col-md-9">
+                    <div class="clubs-content">
+
+                      <div>
+                        <img [src]="transferPost.playerClubImage" class="club-image" alt="club-image">
+                        <div class="club-name">
+                          <h3>{{transferPost.playerClub}}</h3>
+                        </div>
+                      </div>
+                      <div>
+                        <h2 class="text-white">------- Transfer --------></h2>
+                      </div>
+                      <div>
+                      <img [src]="transferPost.clubImage" class="club-image" alt="club-image">
+                      <div class="club-name">
+                        <h3>{{transferPost.clubName}}</h3>
+                      </div>
+                    </div>
+                      
+                    </div>
+                    <div class="potential-bar">
+                      <div class="progress">
+                        <div class="progress-bar bg-warning" role="progressbar" [style]="getTransferRate(transferPost.transferRate)" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                          
+                        </div>
+                      </div>
+                      <div class="potential-bar-text">
+                        <h3 class="text-white">Transfer Potansiyeli %{{transferPost.transferRate}}</h3>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="col-md-3">
+                    <div class="player-content">
+                      <img [src]="getPlayerImage(transferPost.playerImage)" alt="player-image" width="120" height="120">
+                    </div>
+                    <div class="player-content">
+                      <ul class="list-group list-group-flush text-center">
+                        <li class="list-group-item">{{transferPost.playerName}}</li>
+                        <li class="list-group-item">{{transferPost.playerAge}}</li>
+                        <li class="list-group-item">{{transferPost.playerNationality}}</li>
+                        <li class="list-group-item">{{transferPost.playerPosition}}</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="tranfer-content">
+                  
+                  
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="main-test-post-box">
+                  <div class="main-image-content">
+                    <img
+                    [src]="getUserImage(postDetail.profileImage)"
+                    alt="profie-image"
+                    class="profile-image me-2"
+                    width="50"
+                    height="50"
+                    routerLink="/profile/{{postDetail.userId}}"
+                  />
+                  </div>
+                  <div class="main-post">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="name">
+                          <h6 class="name-header ml-1 me-1">
+                            <a routerLink="/profile/{{ postDetail.userId }}">{{ postDetail.userName }}</a>
+                          </h6>
+                          <fa-icon
+                            *ngIf="checkRoleForReporter(postDetail.roles)"
+                            [icon]="checkIcon"
+                            class="fas mt-1 me-1"
+                          ></fa-icon>
+                          <span class="time-text" routerLink="/profile/{{ postDetail.userId }}" >@{{
+                            postDetail.userId 
+                          }}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                          <p class="message-content text-white">
+                            {{postDetail.content}}
+                          </p>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="interactive-content">
+                          <div class="me-3">
+                            <span class="time-text">{{
+                              postDetail.creationDate | date : "mediumDate"
+                            }}</span>
+                          </div>
+                          <div class="me-3 icon-box">
+                           <fa-icon [icon]="commentIcon" class="interactive-fas comment me-1 "></fa-icon>
+                           <span class="interactive-text">{{postDetail.comment}}</span>
+                          </div>
+                          <div class="me-3">
+                           <fa-icon [icon]="hearthIcon" [class]="getFavClass(postDetail.postId)" (click)="favClick(postDetail.postId)"></fa-icon>
+                           <span class="interactive-text">{{getPostFavCount(postDetail.postId,postDetail.fav.length,postDetail.fav)}}</span>
+                           </div>
+                           
+                           <div class="me-2 verify-icon-box" *ngIf="checkCanUserSeeThis(postDetail.status)" >
+                             <fa-icon [icon]="verifyIcon" [class]="getVerifyClass(postDetail.postId)" (click)="verifyClick(postDetail.postId)"></fa-icon>
+                             <span class="interactive-text">{{getPostVerifyCount(postDetail.postId,postDetail.verify.length,postDetail.verify)}}</span>
+                           </div>
+                       </div>
+                      </div>
+                    </div>
+                  
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-md-12">
+          <form [formGroup]="commentForm" accept-charset="UTF-8">
+            <textarea
+              name="postCreate"
+              id="postCreate"
+              class="form-control mt-2 mb-3"
+              rows="5"
+              placeholder="Yorum Yaz"
+              maxlength="255"
+              formControlName="commentContent"
+              
+            ></textarea>
+            <button
+              type="button"
+              class="btn btn-warning"
+              style="float: right" 
+              (click)="comment()"
+            >
+              Gönder
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <hr>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+          <h5 class="comments-text">Yorumlar</h5>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12">
+            <div class="comment-post-content">
+              <div class="card mb-3" *ngFor="let comment of comments">
+                <div class="card-body">
+                  <div class="main-test-post-box">
+                      <div class="main-image-content">
+                        <img
+                        [src]="getUserImage(comment.profileImage)"
+                        alt="profie-image"
+                        class="profile-image me-2"
+                        width="50"
+                        height="50"
+                        routerLink="/profile/{{comment.userId}}"
+                       />
+                    </div>
+                    <div class="main-post">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="name">
+                            <h6 class="name-header ml-1 me-1">
+                              <a routerLink="/profile/{{ comment.userId }}">{{ comment.userName }}</a>
+                            </h6>
+                            <fa-icon
+                              *ngIf="checkRoleForReporter(comment.roles)"
+                              [icon]="checkIcon"
+                              class="fas mt-1 me-1"
+                            ></fa-icon>
+                            <span class="time-text">{{
+                              comment.creationDate | date : "medium"
+                            }}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row" routerLink="/{{comment.userId}}/status/{{comment.postId}}" >
+                          <div class="col-md-12">
+                            <p class="message-content text-white">
+                              {{comment.content}}
+                            </p>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="interactive-content">
+                            <div class="me-3">
+                             <fa-icon [icon]="commentIcon" class="interactive-fas comment me-1 "></fa-icon>
+                             <span class="interactive-text">{{comment.comment}}</span>
+                            </div>
+                            <div class="me-3">
+                             <fa-icon [icon]="hearthIcon" [class]="getFavClass(comment.postId)" (click)="favClick(comment.postId)"></fa-icon>
+                             <span class="interactive-text">{{getPostFavCount(comment.postId,comment.fav.length,comment.fav)}}</span>
+                             </div>
+                             
+                             <!-- <div class="me-2" *ngIf="checkCanUserSeeThis(comment.status)" >
+                               <fa-icon [icon]="verifyIcon" [class]="getVerifyClass(comment.postId)" (click)="verifyClick(comment.postId)"></fa-icon>
+                               <span class="interactive-text">{{getPostVerifyCount(comment.postId,comment.verify.length,comment.verify)}}</span>
+                             </div> -->
+                         </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+           </div>
+        </div>
+      </div>
+      
+  </div>
+</div>
+</div>

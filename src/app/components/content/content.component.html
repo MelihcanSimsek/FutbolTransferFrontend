@@ -1,18 +1,79 @@
-<div class="content-box">
-    <div class="content-header">
-
-    </div>
-    <hr>
-    <div class="content-body">
-        <div class="form-group mb-3">
-            <textarea name="post" id="post" class="form-control"  rows="5" placeholder="Fikir paylaş" ></textarea>
+<div class="content">
+  <div class="container">
+    <div class="page-header">
+      <div class="row">
+        <div class="col-md-12">
+          <h5 class="home-header">Anasayfa</h5>
         </div>
-        <div class="form-group">
-            <button type="button" class="btn btn-primary" style="float:  right;">Gönder</button>
-        </div>
+      </div>
     </div>
-    <hr>
-    <div class="content-footer">
+  </div>
 
+
+    <app-post></app-post>
+  
+  
+ 
+<div class="row d-flex justify-content-center">
+  <div class="col-md-11">
+    <div class="card mb-3" *ngFor="let post of postDetailDto">
+      <div class="card-body" >
+        <div class="test-post-box">
+          <div class="image-content">
+            <img
+              [src]="getUserImage(post)"
+              alt="profie-image"
+              class="profile-image me-2"
+              width="50"
+              height="50"
+              routerLink="/profile/{{post.userId}}"
+            />
+          </div>
+          <div class="content-container">
+            <div class="name">
+              <h6 class="name-header ml-1 me-1">
+                <a routerLink="/profile/{{ post.userId }}">{{ post.userName }}</a>
+              </h6>
+              <fa-icon
+                *ngIf="checkRoleForReporter(post.roles)"
+                [icon]="checkIcon"
+                class="fas mt-1 me-1"
+              ></fa-icon>
+              <span class="time-text">{{
+                post.creationDate | date : "medium"
+              }}</span>
+            </div>
+            <div class="row" routerLink="/{{post.userId}}/status/{{post.postId}}">
+              <div class="col-md-12">
+                <p class="message-content text-white">
+                  {{post.content}}
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-11">
+                <div class="interactive-content">
+                   <div class="me-3">
+                    <fa-icon [icon]="commentIcon" class="interactive-fas comment me-1 "></fa-icon>
+                    <span class="interactive-text">{{post.comment}}</span>
+                   </div>
+                   <div class="me-3">
+                    <fa-icon [icon]="hearthIcon" [class]="getFavClass(post.postId)" (click)="favClick(post.postId)"></fa-icon>
+                    <span class="interactive-text">{{getPostFavCount(post.postId,post.fav.length,post.fav)}}</span>
+                    </div>
+                    <div class="me-2" *ngIf="checkCanUserSeeThis(post.status)" >
+                      <fa-icon [icon]="verifyIcon" [class]="getVerifyClass(post.postId)" (click)="verifyClick(post.postId)"></fa-icon>
+                      <span class="interactive-text">{{getPostVerifyCount(post.postId,post.verify.length,post.verify)}}</span>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+  
+  </div>
 </div>
+ 

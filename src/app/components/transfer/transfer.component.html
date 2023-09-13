@@ -1,0 +1,205 @@
+<div class="content">
+    <div class="container">
+      <div class="page-header">
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="home-header">Transferler</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+     
+
+<div class="container">
+    <br>
+    <h2 class="text-header">Günlük Söylentiler</h2>
+    <div class="d-flex justify-content-center" *ngIf="dailyTransferPost.length < 1">
+        <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>  
+      </div>
+    <div class="row">
+        <div class="row">
+            <div class="col-md-3" *ngFor="let transferPost of dailyTransferPost | potential">
+                <div class="card mb-3" >
+                    <div class="card-body">
+                        <div class="transfer-news" routerLink="/{{transferPost.userId}}/status/{{transferPost.postId}}" style="cursor: pointer;">
+                            <div class="player-image-content">
+                                <img [src]="getPlayerImage(transferPost.playerImage)" class="player-image" alt="player-image" width="200" height="200">
+                            </div>
+                            <div class="player-information-content">
+                                <div>
+                                    <h3 class="text-center text-white">{{transferPost.playerName}}</h3>
+                                </div>
+                                <div class="main-clubs">
+                                    <div class="clubs-content">
+                                        <div>
+                                            <img [src]="transferPost.playerClubImage" class="club-image" alt="club-image">
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white">------- Transfer --------></h5>
+                                        </div>
+                                        <div>
+                                            <img [src]="transferPost.clubImage" class="club-image" alt="club-image">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="potential-bar">
+                                    <div class="progress">
+                                      <div class="progress-bar bg-warning" role="progressbar" [style]="getTransferRate(transferPost.transferRate)" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                        
+                                      </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="potential-bar-text">
+                                    <h3 class="text-white">Transfer Potansiyeli %{{transferPost.transferRate}}</h3>
+                                  </div>
+                                <ul class="list-group list-group-flush text-center">
+                                    <li class="list-group-item">  <img
+                                        [src]="getUserImage(transferPost.userProfileImage)"
+                                        alt="profie-image"
+                                        class="profile-image me-2"
+                                        width="50"
+                                        height="50"
+                                        routerLink="/profile/{{transferPost.userId}}"
+                                      /> <span routerLink="/profile/{{transferPost.userId}}" style="cursor: pointer;">{{transferPost.userName}} </span> <fa-icon [icon]="checkIcon" class="fas"></fa-icon> </li>
+                                      <li class="list-group-item"><span class="id-text">{{transferPost.creationDate | date:'medium'}}</span></li>
+                                  </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <br>
+    <h2 class="text-header">Haftalık Söylentiler</h2>
+    <div class="d-flex justify-content-center" *ngIf="weeklyTransferPost.length < 1">
+        <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>  
+      </div>
+    <div class="row">
+        <div class="row">
+            <div class="col-md-3" *ngFor="let transferPost of weeklyTransferPost | potential">
+                <div class="card mb-3" >
+                    <div class="card-body">
+                        <div class="transfer-news" routerLink="/{{transferPost.userId}}/status/{{transferPost.postId}}" style="cursor: pointer;">
+                            <div class="player-image-content">
+                                <img [src]="getPlayerImage(transferPost.playerImage)" class="player-image" alt="player-image" width="200" height="200">
+                            </div>
+                            <div class="player-information-content">
+                                <div>
+                                    <h3 class="text-center text-white">{{transferPost.playerName}}</h3>
+                                </div>
+                                <div class="main-clubs">
+                                    <div class="clubs-content">
+                                        <div>
+                                            <img [src]="transferPost.playerClubImage" class="club-image" alt="club-image">
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white">------- Transfer --------></h5>
+                                        </div>
+                                        <div>
+                                            <img [src]="transferPost.clubImage" class="club-image" alt="club-image">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="potential-bar">
+                                    <div class="progress">
+                                      <div class="progress-bar bg-warning" role="progressbar" [style]="getTransferRate(transferPost.transferRate)" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                        
+                                      </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="potential-bar-text">
+                                    <h3 class="text-white">Transfer Potansiyeli %{{transferPost.transferRate}}</h3>
+                                  </div>
+                                <ul class="list-group list-group-flush text-center">
+                                    <li class="list-group-item">  <img
+                                        [src]="getUserImage(transferPost.userProfileImage)"
+                                        alt="profie-image"
+                                        class="profile-image me-2"
+                                        width="50"
+                                        height="50"
+                                        routerLink="/profile/{{transferPost.userId}}"
+                                      /> <span routerLink="/profile/{{transferPost.userId}}" style="cursor: pointer;">{{transferPost.userName}} </span> <fa-icon [icon]="checkIcon" class="fas"></fa-icon> </li>
+                                      <li class="list-group-item"><span class="id-text">{{transferPost.creationDate | date:'medium'}}</span></li>
+                                  </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <br>
+    <h2 class="text-header">Aylık Söylentiler</h2>
+    <div class="d-flex justify-content-center" *ngIf="monthlyTransferPost.length < 1">
+        <div class="spinner-border text-warning" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>  
+      </div>
+    <div class="row">
+        <div class="row">
+            <div class="col-md-3" *ngFor="let transferPost of monthlyTransferPost | potential">
+                <div class="card mb-3" >
+                    <div class="card-body">
+                        <div class="transfer-news" routerLink="/{{transferPost.userId}}/status/{{transferPost.postId}}" style="cursor: pointer;">
+                            <div class="player-image-content">
+                                <img [src]="getPlayerImage(transferPost.playerImage)" class="player-image" alt="player-image" width="200" height="200">
+                            </div>
+                            <div class="player-information-content">
+                                <div>
+                                    <h3 class="text-center text-white">{{transferPost.playerName}}</h3>
+                                </div>
+                                <div class="main-clubs">
+                                    <div class="clubs-content">
+                                        <div>
+                                            <img [src]="transferPost.playerClubImage" class="club-image" alt="club-image">
+                                        </div>
+                                        <div>
+                                            <h5 class="text-white">------- Transfer --------></h5>
+                                        </div>
+                                        <div>
+                                            <img [src]="transferPost.clubImage" class="club-image" alt="club-image">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="potential-bar">
+                                    <div class="progress">
+                                      <div class="progress-bar bg-warning" role="progressbar" [style]="getTransferRate(transferPost.transferRate)" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                                        
+                                      </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="potential-bar-text">
+                                    <h3 class="text-white">Transfer Potansiyeli %{{transferPost.transferRate}}</h3>
+                                  </div>
+                                <ul class="list-group list-group-flush text-center">
+                                    <li class="list-group-item">  <img
+                                        [src]="getUserImage(transferPost.userProfileImage)"
+                                        alt="profie-image"
+                                        class="profile-image me-2"
+                                        width="50"
+                                        height="50"
+                                        routerLink="/profile/{{transferPost.userId}}"
+                                      /> <span routerLink="/profile/{{transferPost.userId}}" style="cursor: pointer;">{{transferPost.userName}} </span> <fa-icon [icon]="checkIcon" class="fas"></fa-icon></li>
+                                      <li class="list-group-item"><span class="id-text">{{transferPost.creationDate | date:'medium'}}</span></li>
+                                  </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>

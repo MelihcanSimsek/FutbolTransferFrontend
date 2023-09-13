@@ -1,0 +1,49 @@
+.page-header{
+    height: 60px;
+    background-color: #242424;
+}
+
+.home-header{
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 2rem;
+}
+
+.settings-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:80vh;
+}
+
+.update-container
+{
+    background-color: #ffc107;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.update-header{
+    font-size: 1.3rem;
+    color: #121212;
+}
+
+.update-container:hover{
+    background-color:#e7af07;
+    cursor: pointer;
+}
+
+.card{
+    background-color: #121212;
+}
+
+label{
+    color: white;
+    font-size: 1.2rem;
+}
+
+

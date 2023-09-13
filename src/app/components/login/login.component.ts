@@ -42,8 +42,14 @@ export class LoginComponent implements OnInit {
       let loginModel:LoginModel = Object.assign({},this.loginForm.value);
       this.authService.login(loginModel).subscribe(response=>{
         this.localStorage.setItem('token',response.data.token);
-        this.toastrService.info("Anasayfaya yönlendiriliyorsunuz","Giriş Başarılı");
-        this.router.navigate(["/home"])
+        setTimeout(() => {
+          location.reload();
+        
+        }, 1);
+        this.toastrService.info("Anasayfaya yönlendiriliyorsunuz","Giriş Başarılı"); 
+        this.router.navigate(["/home"]);
+        
+        
       },responseError=>{
 
         this.toastrService.error("Kullanıcı bilgileri hatalı","Giriş Başarısız");

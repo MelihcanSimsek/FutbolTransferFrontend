@@ -1,0 +1,42 @@
+<div class="content">
+    <div class="container">
+      <div class="page-header">
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="home-header">Talepler</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="container main-request-contanier">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card mb-3" *ngFor="let request of requests">
+            <div class="card-body">
+                <div class="request-container">
+                    <div class="user-information-container" routerLink="/profile/{{ request.userId }}">
+                        <div>
+                            <img [src]="getUserImage(request.profileImage)" alt="user-image" class="user-image">
+                        </div>
+                        <div class="username-container">
+                            <h3 class="username-header">{{request.username}}</h3>
+                        </div>
+                    </div>
+                    <div class="message-content">
+                       <p>{{request.message}}</p> 
+                    </div>
+                    <div class="button-container">
+                        <div class="confirmation-container mb-2" (click)="confirm(request)">
+                            <fa-icon [icon]="checkIcon" class="icon"></fa-icon>
+                        </div>
+                        <div class="reject-container" (click)="reject(request)">
+                            <fa-icon [icon]="xmarkIcon" class="icon"></fa-icon>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

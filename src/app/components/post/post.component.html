@@ -1,0 +1,150 @@
+<div class="container mb-3">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="post-create">
+          <div class="form-group">
+            <div >
+            <div class="row" >
+              <div class="col-md-3">
+                <div class="post-type" *ngIf="checkUserRoles()" >
+                  <select class="form-select" [(ngModel)]="postType" >
+                    <option value="1" >Gönderi</option>
+                    <option value="2" >Transfer Haberi</option>
+                  </select>
+                 </div>
+              </div>
+            </div>
+            <div class="row " *ngIf="postType == 2">
+              <div class="col-md-12">
+
+                <button type="button" class="btn btn-outline-warning me-2" data-bs-toggle="modal" data-bs-target="#myModalPlayer">{{selectPlayer}}</button>
+                  <button type="button" class="btn btn-outline-warning " data-bs-toggle="modal" data-bs-target="#myModalClub">{{selectClub}}</button>
+
+                 
+
+                  <div class="modal fade bd-example-modal-lg" id="myModalClub" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <button type="button" class="btn letter-button me-3 mb-3" data-bs-target="#ClubListModal" data-bs-toggle="modal" data-bs-dismiss="modal" (click)="onClubLetterClicked(letter)" *ngFor="let letter of alphabet">{{letter}}</button>
+                          </div>
+                        </div>
+                              
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal fade bd-example-modal-lg" id="myModalPlayer" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <button type="button" class="btn  letter-button me-3 mb-3"  data-bs-target="#PlayerListModal" data-bs-toggle="modal" data-bs-dismiss="modal"  (click)="onPlayerLetterClicked(letter)" *ngFor="let letter of alphabet">{{letter}}</button>
+                          </div>
+                        </div>  
+                      </div>
+                         
+                    </div>
+                  </div> 
+                 </div>
+                 <div class="modal fade bd-example-modal-lg" id="PlayerListModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-body ">
+                        <div class="row mb-3 d-flex justify-content-center">
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" [(ngModel)]="playerFilterText" placeholder="Oyuncu ismi giriniz">
+                          </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                          <div class="col-md-11">
+                            <div  *ngIf="playerFilterText.length>0" class="alert alert-danger">
+                              {{playerFilterText}} filtrelediniz.
+                              
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="row ">
+                          <div class="col-md-4 mb-3" *ngFor="let player of players |playerFilter:playerFilterText">
+                            <div class="club-content" >
+                              <img [src]="getPlayerImage(player.profileImage)" class="club-image" alt="player-image" width="180px" height="180px">
+                              <div class="club-button player-button text-center" data-bs-dismiss="modal"  (click)="onPlayerClicked(player)">
+                                <h4 class="mt-1">{{player.name}}</h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                
+                <div class="modal fade bd-example-modal-lg" id="ClubListModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-body ">
+                        <div class="row mb-3 d-flex justify-content-center">
+                          <div class="col-md-8">
+                            <input type="text" class="form-control" [(ngModel)]="clubFilterText" placeholder="Takım ismi giriniz">
+                          </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                          <div class="col-md-11">
+                            <div  *ngIf="clubFilterText.length>0" class="alert alert-danger">
+                              {{clubFilterText}} filtrelediniz.
+                              
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div class="row ">
+                          
+                            <div class="col-md-4 mb-3" *ngFor="let club of clubs |clubFilter:clubFilterText">
+                              <div class="club-content" >
+                                <img [src]="getClubImage(club.image)" class="club-image" alt="club-image" width="180px" height="180px">
+                                <div class="club-button player-button text-center" data-bs-dismiss="modal"  (click)="onClubClicked(club)">
+                                  <h4 class="mt-1">{{club.team}}</h4>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+            <form [formGroup]="postForm" accept-charset="UTF-8">
+              <textarea
+                name="postCreate"
+                id="postCreate"
+                class="form-control mt-2 mb-3"
+                rows="5"
+                [placeholder]="getPostcontentPlaceholder()"
+                maxlength="255"
+                formControlName="postContent"
+                
+              ></textarea>
+              <button
+                type="button"
+                class="btn btn-warning"
+                style="float: right"
+                (click)="post()"
+              >
+                Gönder
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

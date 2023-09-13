@@ -48,6 +48,10 @@ export class RegisterComponent implements OnInit {
         });
         this.authService.register(registerModel).subscribe(response=>{
           this.localStorage.setItem('token',response.data.token);
+          setTimeout(() => {
+            location.reload();
+          
+          }, 1);
           this.toastrService.success("Anasayfaya yönlendiriliyorsunuz.","Kayıt Başarılı");
           this.router.navigate(["/home"]);
         },responseError=>{

@@ -1,0 +1,211 @@
+<div class="content">
+    <div class="container">
+      <div class="page-header">
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="home-header">Profil</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card profile-card" >
+            <div class="card-body" *ngIf="checkUserInformation()">
+                <div>
+                <img [src]="getUserBackgroundImage(profile.backgroundImage)" class="background-image" alt="profile-background">
+                <img [src]="getUserImage(profile.profileImage)" class="profile-image" alt="profile-image">
+                </div>
+                <div class="user-information">
+                  
+                  <div class="name-icon">
+                    <div class="me-1">
+                      <h4 class="username-header" >{{currentUser.userName}}</h4>
+                    </div>
+                    <div class="mt-1">
+                      <fa-icon *ngIf="checkRoleForReporter(currentUser.roles)" [icon]="checkIcon" class="fas"></fa-icon>
+                    </div>
+                    <div class="id-container">
+                      <span class="id-text">@{{currentUser.userId}}</span>
+                    </div>
+                    <div class="follow-container">
+                      <div class="follow-button" *ngIf="!checkUserFollowersList() && !isUserOwnProfile()" (click)="follow()">
+                        <h2 class="mt-3">Takip Et</h2>
+                      </div>
+                      <div class="unfollow-button" *ngIf="checkUserFollowersList() && !isUserOwnProfile()" (click)="unFollow()">
+                        <h2 class="mt-3">Takip Bırak</h2>
+                      </div>
+                      <div class="edit-profile-button" *ngIf="isUserOwnProfile()" data-bs-toggle="modal" data-bs-target="#myModal">
+                        <h2 class="mt-3">Düzenle</h2>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="profile-description mt-3">
+                        <p>{{profile.description}}</p>
+                  </div>
+                   <div class="location-link-container">
+                     <div class="location me-3">
+                          <p><fa-icon [icon]="location" class="me-1"></fa-icon> {{profile.location}}</p>
+                      </div>
+                      <div class="website">
+                          <p><fa-icon [icon]="link" class="me-1"></fa-icon> <a [href]="profile.webSite">{{profile.webSite}}</a></p>
+                      </div>
+                    </div>
+                  
+                  <div class="creation-date">
+                      <p><fa-icon [icon]="calendar"></fa-icon>   {{currentUser.creationDate | date:'mediumDate'}}</p>
+                  </div>
+                  <div class="follower-information">
+                      <div class="followers me-3">
+                        <p>Takipçi: <span class="number">{{followerList.length}}</span></p>
+                      </div>
+
+                      <div class="followed">
+                        <p>Takip Edilen: <span class="number">{{followedList.length}}</span></p>
+                      </div>
+                  </div>
+                </div>    
+                 
+              
+                
+                <div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <hr class="line">
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card post-card mb-3" *ngFor="let post of postDetail">
+      <div class="card-body">
+        <div class="main-test-post-box">
+          <div class="main-image-content">
+            <img
+            [src]="getUserImage(post.profileImage)"
+            alt="profie-image"
+            class="post-profile-image me-2"
+            width="50"
+            height="50"
+            routerLink="/profile/{{post.userId}}"
+          />
+          </div>
+          <div class="main-post">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="name">
+                  <h6 class="name-header ml-1 me-1">
+                    <a routerLink="/profile/{{ post.userId }}">{{ post.userName }}</a>
+                  </h6>
+                  <fa-icon
+                    *ngIf="checkRoleForReporter(post.roles)"
+                    [icon]="checkIcon"
+                    class="fas  me-1"
+                  ></fa-icon>
+                  <span class="time-text" routerLink="/profile/{{ post.userId }}" >{{
+                    post.creationDate | date:'medium' 
+                  }}</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                  <p class="message-content text-white" routerLink="/{{ post.userId }}/status/{{post.postId}}">
+                    {{post.content}}
+                  </p>
+                </div>
+            </div>
+
+            <!-- <div class="row">
+              <div class="col-md-12">
+                <div class="interactive-content">
+                  <div class="me-3">
+                    <span class="time-text">{{
+                      postDetail.creationDate | date : "mediumDate"
+                    }}</span>
+                  </div>
+                  <div class="me-3 icon-box">
+                   <fa-icon [icon]="commentIcon" class="interactive-fas comment me-1 "></fa-icon>
+                   <span class="interactive-text">{{postDetail.comment}}</span>
+                  </div>
+                  <div class="me-3">
+                   <fa-icon [icon]="hearthIcon" [class]="getFavClass(postDetail.postId)" (click)="favClick(postDetail.postId)"></fa-icon>
+                   <span class="interactive-text">{{getPostFavCount(postDetail.postId,postDetail.fav.length,postDetail.fav)}}</span>
+                   </div>
+                   
+                   <div class="me-2 verify-icon-box" *ngIf="checkCanUserSeeThis(postDetail.status)" >
+                     <fa-icon [icon]="verifyIcon" [class]="getVerifyClass(postDetail.postId)" (click)="verifyClick(postDetail.postId)"></fa-icon>
+                     <span class="interactive-text">{{getPostVerifyCount(postDetail.postId,postDetail.verify.length,postDetail.verify)}}</span>
+                   </div>
+               </div>
+              </div>
+            </div> -->
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-body">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-10">
+          <div class="profile-image-update">
+            <div class="mb-3">
+              <label for="profile-image-file">Profil Fotoğrafı</label>
+              <input type="file" class="form-control" (change)="onProfileImageFileSelected($event)" id="profile-image-file" >
+            </div>
+          </div>
+          <div class="background-image-update">
+              <div class="mb-3">
+                <label for="background-image-file">Arkaplan Fotoğrafı</label>
+                <input type="file" class="form-control" (change)="onBackgroundImageFileSelected($event)" id="background-image-file">
+              </div>
+          </div>
+         
+          <div class="profile-information-update">
+            <form [formGroup]="profileForm">
+              <div class="mb-3">
+                <label for="username">Kullanıcı Adı</label>
+                <input type="text" id="username" class="form-control" formControlName="username">
+              </div>
+              <div class="mb-3">
+                <label for="description">Profil Açıklama</label>
+                <textarea class="form-control" id="description"  cols="30" rows="5" formControlName="description"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="location">Konum</label>
+                <input type="text" id="location" class="form-control" formControlName="location">
+              </div>
+              <div class="mb-3">
+                <label for="website">Website</label>
+                <input type="text" id="website" class="form-control" formControlName="website">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <div class="modal-footer">
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-danger" (click)="update()">Güncelle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+</div>

@@ -1,0 +1,42 @@
+<div class="content">
+    <div class="container">
+      <div class="page-header">
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="home-header">Ayarlar</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+<div class="container password-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="settings-container">
+                <div class="card">
+                    <div class="card-body">
+                        <form [formGroup]="passwordForm">
+                            <div class="mb-3">
+                                <label for="old-password">Mevcut Şifre</label>
+                                <input type="password" class="form-control" id="old-password" formControlName="oldPassword">
+                            </div>
+                            <div class="mb-3">
+                                <label for="new-password">Yeni Şifre</label>
+                                <input type="password" class="form-control" id="new-password" formControlName="newPassword">
+                            </div>
+                            <div class="mb-3">
+                                <label for="repeat-password">Şifre Tekrarı</label>
+                                <input type="password" class="form-control" id="repeat-password" formControlName="repeatPassword">
+                            </div>
+                            <div class="update-container">
+                                <h3 class="update-header mt-2" (click)="update()">Güncelle</h3>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

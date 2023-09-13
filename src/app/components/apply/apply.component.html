@@ -1,0 +1,25 @@
+<div class="content">
+    <div class="container">
+      <div class="page-header">
+        <div class="row">
+          <div class="col-md-12">
+            <h5 class="home-header">Başvur</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container apply-container">
+        <div class="row">
+            <div class="col-md-12">
+            <form [formGroup]="applyForm">
+               <textarea class="form-control" name="" id="" cols="30" rows="10" maxlength="800" placeholder="Muhabirlik başvurusu için kendinizi tanıtın." formControlName="applyText"></textarea>
+                <div class="button-container" (click)="apply()" *ngIf="request == undefined">
+                    <h3 class="button-header">Başvuru Yap</h3>
+                </div>
+                <div class="button-container-disabled" *ngIf="request != undefined">
+                  <h3 class="button-header">Talebiniz Değerlendiriliyor</h3>
+              </div>
+           </form>
+            </div>
+        </div>
+    </div>

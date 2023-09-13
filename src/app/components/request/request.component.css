@@ -1,0 +1,101 @@
+.page-header{
+    height: 60px;
+    background-color: #242424;
+}
+
+.home-header{
+    color: white;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-size: 2rem;
+}
+
+
+.card{
+    background-color: #242424;
+}
+
+
+.request-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-request-contanier
+{
+    margin-top: 50px;
+}
+
+.user-image{
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+}
+
+.message-header{
+    color: white;
+    font-size: 2rem;
+}
+
+.message-content{
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+
+.confirmation-container{
+    background-color: #ffc107;
+    width: 100px;
+    height: 100px;
+}
+
+.reject-container
+{
+    background-color: red;
+    width: 100px;
+    height: 100px;
+}
+
+.icon{
+    font-size: 4rem;
+    color: white;
+}
+
+.confirmation-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmation-container:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.reject-container:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
+.reject-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.username-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.username-header{
+    color: white;
+    font-size: 1.5rem;
+}
